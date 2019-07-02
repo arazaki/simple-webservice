@@ -4,7 +4,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     Message = require('./api/models/msgModel'),
     bodyParser = require('body-parser'),
-    mongoUrl = process.env.MONGODB || 'mongodb://localhost/msgdb';
+    mongoUrl = process.env.MONGODB_URI || 'mongodb://localhost/msgdb';
 
 mongoose.Promise = global.Promise;
 mongoose.connect(mongoUrl);
