@@ -3,10 +3,11 @@ var express = require('express'),
     port = process.env.PORT || 3000,
     mongoose = require('mongoose'),
     Message = require('./api/models/msgModel'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    mongoUrl = process.env.MONGODB || 'mongodb://localhost/msgdb';
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/msgdb');
+mongoose.connect(mongoUrl);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var routes = require('./api/routes/msgRoutes');
